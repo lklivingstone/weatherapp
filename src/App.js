@@ -21,13 +21,12 @@ const useFormControlStyles = makeStyles((theme) => ({
     gap: "8px",
     minHeight: "20vh",
     width: "60vw",
-    // border:'2px solid black',
     padding:4,
     borderRadius:'4px'
   }
 }));
 
-const baseURL = "http://localhost:5000/api/weather/getWeather"
+const baseURL = "https://weatherbylk.onrender.com/api/weather/getWeather"
 
 const capitalizeFirstLetter = (cityName) => {
     const firstChar = cityName.charAt(0).toUpperCase();
@@ -75,17 +74,15 @@ function App() {
 		setCurrValue(e.target.value);
   };
 
-  // test
 
   useEffect(() => {
-    console.log(weatherData); // Log weatherData when it changes
+    console.log(weatherData); 
   }, [weatherData]);
 
   useEffect(() => {
     var ind = 0;
 
     for (const cityName in resData["weather"]) {
-      console.log(cityName, cities[ind])
       if (cityName === cities[ind]) {
         setWeatherData((oldState) => [...oldState, {
           city: cityName,
@@ -101,7 +98,6 @@ function App() {
         }]);
       }
       ind += 1;
-      // console.log(`City: ${city}, Temperature: ${weatherData[city]}`);
     }
   }, [cities])
 
@@ -122,7 +118,6 @@ function App() {
     
   }, [resData])
 
-  // end test 
 
   const clickSearchButton = async (e) => {
     e.preventDefault()
@@ -148,14 +143,15 @@ function App() {
     const suggestedData = datas.filter((data) => data.suggestion === true);
     return (
         <>
-        <ul>
+        <ul style={{
+            color: "#def2f1"}} >
         {datas.length > 0 &&
           datas.map((data, index) =>
             data.suggestion === false ? (
               <li style={{listStyleType: "none"}} key={index}>
                 {data.city}, Temperature: {data.temp}
               </li>
-            ) : null // Render nothing if data.suggestion is true
+            ) : null
           )}
         </ul>
         
@@ -184,7 +180,7 @@ function App() {
             elevation={0} 
             variant="outlined" square
             component="form"
-            sx={{borderColor: 'green', border: "1", backgroundColor: "transparent", borderRadius: "4px",  display: 'flex', alignItems: 'center', width: "80%" }}
+            sx={{borderColor: '#2b7a78', border: "1", backgroundColor: "transparent", borderRadius: "4px",  display: 'flex', alignItems: 'center', width: "80%" }}
         >
           <InputBase
             sx={{ ml: 1, flex: 1, variant:"outlined", }}
@@ -194,7 +190,7 @@ function App() {
 					  onKeyDown={handleKeyDown}
           />
           <IconButton
-            type="button" sx={{ color: "green" }} aria-label="search">
+            type="button" sx={{ color: "#17252a" }} aria-label="search">
             <AddIcon onClick = {(e) => handleAddCity(e)} />
           </IconButton>
         </Paper>
@@ -210,11 +206,9 @@ function App() {
           onClick={clickSearchButton}
           variant="contained"
           style={{
-            // borderRadius: 35,
-            backgroundColor: "#58AD3A",
-            // padding: "18px 36px",
-            // fontSize: "18px"
-            marginBottom: "5vh"
+            backgroundColor: "#17252a",
+            marginBottom: "5vh",
+            color: "#def2f1"
         }}
         >Search</Button>
       }
