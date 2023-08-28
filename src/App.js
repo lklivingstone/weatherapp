@@ -107,7 +107,7 @@ function App() {
     let tempArr = [];
 
     values.map((item,index) => (
-      tempArr = [ ...tempArr, capitalizeFirstLetter(item)]
+      tempArr = [ ...tempArr, capitalizeFirstLetter(item).trim()]
     ))
 
     setWeatherData([])
