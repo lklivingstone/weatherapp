@@ -1,7 +1,7 @@
 const axios = require('axios');
 const router= require("express").Router()
 
-const WEATHERBIT_API_KEY = '6388b4bbaaf04c83b1ddea6609fd0974';
+const WEATHERBIT_API_KEY = 'fc73efc3a2364a3f8a86522252d8e363';
 const WEATHERBIT_BASE_URL = 'http://api.weatherbit.io/v2.0/current';
 
 // GET WEATHER
