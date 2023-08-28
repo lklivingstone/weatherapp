@@ -144,7 +144,8 @@ function App() {
     return (
         <>
         <ul style={{
-            color: "#def2f1"}} >
+            color: "#def2f1"}} 
+        >
         {datas.length > 0 &&
           datas.map((data, index) =>
             data.suggestion === false ? (
@@ -157,8 +158,9 @@ function App() {
         
         {suggestedData.length > 0 && (
         <>
-          <p style={{marginTop: "3vh"}}>Did you mean?</p>
-          <ul>
+          <p style={{marginTop: "3vh", color: "#def2f1"}}>Did you mean?</p>
+          <ul style={{
+            color: "#def2f1"}} >
             {suggestedData.map((data, index) => (
               data.suggestion === true ? (
                 <li style={{listStyleType: "none"}} key={index}>
